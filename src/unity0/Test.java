@@ -24,7 +24,9 @@ public class Test {
         }
         System.out.print("Initial Values: ");
         q.print();
-        q.remove();
+        int d = q.remove();
+        System.out.println("The element removed was: " + d);
+        System.out.print("Current values: ");
         q.print();
     }
     public static void testingStacks (){
