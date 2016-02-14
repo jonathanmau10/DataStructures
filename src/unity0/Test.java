@@ -12,10 +12,28 @@ package unity0;
 public class Test {
     
     public static void main (String [ ] args) {
- 
+        
+        testingList();
         testingStacks();
         testingQueues();
+        
     }
+    
+    public static void testingList(){
+        System.out.println("*********Testing List*********");
+        List l = new List();
+        l.add(55);
+        l.add(15);
+        l.add(20);
+        System.out.print("The items of list are: ");
+        l.print();
+        
+        System.out.println("\nThe element remove was: " + l.remove(20));
+        System.out.print("The current list is: ");
+        l.print();
+        System.out.println();
+    }
+    
     public static void testingQueues () {
         System.out.println("*********Testing Queues*********");
         Queue q = new Queue();
