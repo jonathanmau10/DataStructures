@@ -20,7 +20,6 @@ public class List {
     }
     
     public void add(int position, int d){ // add an element in any position
-        
         int i;
         for(i = 0; i < top; i++){
             if(data[i] == data[position]){
@@ -34,13 +33,9 @@ public class List {
         for(int j = i; j < top; j++){
             data[j] = data[j+1];
         }
-        
-        
-        
     }
     
-    
-    public int remove(int d){
+    public int remove(int d){ // remove any element into of the list
         int i;
         for(i = 0; i < top; i++){
             if(data[i] == d){
