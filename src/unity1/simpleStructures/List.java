@@ -28,9 +28,6 @@ public class List {
         }
     }
     
-    public int remove(int p){
-        return 0;
-    }
     
     public int count(){
         int count = 0;
@@ -74,5 +71,49 @@ public class List {
         }
         
         System.out.println();
+    }
+    
+    public int remove(int index){
+        if(head == null){return -1;}
+            if(index == 0){
+                head = head.next;
+                return 0;
+            }
+
+            Node aux = head;
+            Node p = null;
+            int counter = 0;
+            for(counter = 0; counter < index && aux != null; counter++){
+                p = aux;
+                aux = aux.next;
+            }
+            
+            if(aux != null){
+                p.next = aux.next;
+            }
+            return aux.data;
+    }
+    
+    public void removeFirstElement(){
+        if(head != null){
+            head = head.next;
+        }
+    }
+    
+    public void removeLastElement(){
+        if(head != null){
+            Node aux = head;
+            Node p = null;
+            if(head.next == null){
+                head = head.next;
+            }
+            else{
+                while(aux.next != null){
+                    p = aux;
+                    aux = aux.next;
+                }
+                p.next = aux.next;
+            }
+        }
     }
 }

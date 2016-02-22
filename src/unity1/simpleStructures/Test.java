@@ -19,7 +19,9 @@ public class Test {
         l.add(15);
         l.add(20);
         l.add(40);
-        System.out.println("Initial Values: ");
+        
+        l.remove(3);
+        System.out.print("Initial Values: ");
         l.print();
         
         int c = l.count();
