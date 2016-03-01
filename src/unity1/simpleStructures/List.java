@@ -116,4 +116,49 @@ public class List {
             }
         }
     }
+    
+    public void duplicate(){
+        
+        if(head == null){
+            return;
+        }
+        Node last = head;
+        Node aux = head;
+        
+        while(last.next != null){
+            
+            last = last.next;
+            
+        }
+        int c = count();
+        for(int i = 0; i<c; i++){
+            last.next = new Node(aux.data);
+            aux = aux.next;
+            last = last.next; 
+            
+        }
+       
+    }
+    
+    public void duplicateMirror(){
+        if(head == null){
+            return;
+        }
+        Node last = head;
+        Node aux = head;
+        
+        while(last.next != null){
+            
+            last = last.next;
+            
+        }
+        int c = count();
+        for(int i = 0; i<c; i++){
+            Node n = new Node(aux.data);
+            n.next = last.next;
+            last.next = n;
+            
+        }
+    }
+        
 }
