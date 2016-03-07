@@ -19,20 +19,15 @@ public class List {
         top++;
     }
     
-    public void add(int position, int d){ // add an element in any position
-        int i;
-        for(i = 0; i < top; i++){
-            if(data[i] == data[position]){
-                data[i] = d;
-                top++;
-                break;
-                
-            }
-        }
+    public void add (int d,int index){
         
-        for(int j = i; j < top; j++){
-            data[j] = data[j+1];
-        }
+       top++;
+       if(index<top){
+            for(int i=top-1;i>=index;i--){
+                data[i+1]=data[i];
+            }
+        data[index]=d;
+       }
     }
     
     public int remove(int d){ // remove any element into of the list

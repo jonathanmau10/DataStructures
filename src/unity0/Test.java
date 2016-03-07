@@ -24,6 +24,7 @@ public class Test {
         List l = new List();
         l.add(55);
         l.add(15);
+        
         l.add(20);
         System.out.print("The items of list are: ");
         l.print();
