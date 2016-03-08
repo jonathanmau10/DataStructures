@@ -1,6 +1,8 @@
 
 package unity1.simpleStructures;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import unity1.simpleStructures.Node;
 
 /**
@@ -75,29 +77,31 @@ public class List {
     
     public int remove(int index){
         if(head == null){return -1;}
-            if(index == 0){
-                head = head.next;
-                return 0;
-            }
+        
+        if(index == 0){
+            head = head.next;
+            return 0;
+        }
 
-            Node aux = head;
-            Node p = null;
-            int counter = 0;
-            for(counter = 0; counter < index && aux != null; counter++){
-                p = aux;
-                aux = aux.next;
-            }
-            
-            if(aux != null){
-                p.next = aux.next;
-            }
-            return aux.data;
+        Node aux = head;
+        Node p = null;
+        int counter = 0;
+        for(counter = 0; counter < index && aux != null; counter++){
+            p = aux;
+            aux = aux.next;
+        }
+
+        if(aux != null){
+            p.next = aux.next;
+        }
+        return aux.data;
     }
     
     public void removeFirstElement(){
         if(head != null){
             head = head.next;
         }
+       
     }
     
     public void removeLastElement(){
@@ -193,5 +197,45 @@ public class List {
         
         head = head2;
     }
+    
+    
+    public void removeIntercalated(){
+        if(head == null) return;
         
+
+        Node aux = head;
+        
+        while(aux != null && aux.next != null){
+             aux.next = aux.next.next;
+             aux = aux.next;
+        }
+       
+    }
+    
+    
+    public void removeRecurrents(){
+        if(head == null)
+            return;
+        Node aux = head;
+        Node current = aux.next;
+        while(current != null){
+            Node runner = head;
+            while(runner != current){
+                if(runner.data == current.data){
+                    Node temp = current.next;
+                    aux.next = temp;
+                    current = temp;
+                    break;
+                }
+                runner = runner.next;
+            }
+            if(runner == current){
+                aux = current;
+                current = current.next;
+            }
+        }
+    }
+    
+   
+    
 }

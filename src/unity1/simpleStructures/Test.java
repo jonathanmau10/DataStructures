@@ -19,8 +19,13 @@ public class Test {
         l.add(10);
         l.add(15);
         l.add(20);
+        l.add(10);
+        l.add(5);
+        
         l.add(25);
         l.add(30);
+        l.add(45);
+        l.add(5);
         System.out.print("Initial values: ");
         l.print();
         int c = l.count();//cantidad de nodos
@@ -29,7 +34,7 @@ public class Test {
         l.printFirstElement();
         System.out.print("The last element is: ");
         l.printLastElement();
-        System.out.println("The Remove is: ");
+        /*System.out.println("The Remove is: ");
         l.remove(1);
         l.print();
         System.out.println("The remove first element: ");
@@ -37,20 +42,31 @@ public class Test {
         l.print();
         System.out.println("The remove Last element: ");       
         l.removeLastElement();
-        l.print();        
+        l.print();  */      
         /*System.out.println("The values after duplication: ");   
         l.duplicate();
         l.print();
         System.out.println("The values after duplication Mirror: ");   
         l.duplicateMirror();
         l.print();*/
-        System.out.println("Values after invert: ");
+        /*System.out.println("Values after invert: ");
         l.invert();
         l.print();
         System.out.println("Values with reversPrint(): ");
-        l.reversPrint();
+        l.reversPrint();*/
+        
+        System.out.println("The values with remove intercalated is");
+        //l.removeIntercalated();
+        //l.print();
+        System.out.println("Elemts removed");
+        System.out.println("Values after");
+        
+        l.print();
+        
         
     }
+    
+    
     
     public static void main (String [ ] args) {
         
