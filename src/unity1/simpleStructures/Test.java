@@ -19,13 +19,9 @@ public class Test {
         l.add(10);
         l.add(15);
         l.add(20);
-        l.add(10);
-        l.add(5);
+        l.add(17);
+      
         
-        l.add(25);
-        l.add(30);
-        l.add(45);
-        l.add(5);
         System.out.print("Initial values: ");
         l.print();
         int c = l.count();//cantidad de nodos
@@ -60,7 +56,8 @@ public class Test {
         //l.print();
         System.out.println("Elemts removed");
         System.out.println("Values after");
-        
+        //l.InsertZeros();
+        l.DuplicateIntercalated();
         l.print();
         
         

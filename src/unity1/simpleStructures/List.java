@@ -212,6 +212,23 @@ public class List {
        
     }
     
+    public void DuplicateIntercalated(){
+        if(head==null) return;
+        
+        Node aux = head,p=head;
+                                   
+        while(aux != null){
+            
+            
+            Node n = new Node(p.data);
+            aux=aux.next;
+             p.next=n;
+             n.next=aux;
+             p=aux;
+          
+        }
+        
+    }
     
     public void removeRecurrents(){
         if(head == null)
@@ -237,5 +254,51 @@ public class List {
     }
     
    
+    public void removeMiddle(){
+        
+        if(head == null) return;
+        Node aux = head;
+        int c = count()/2;
+        
+        int cont = 1;
+        while(aux.next != null){
+            cont++;
+            aux = aux.next;
+            if(cont == c){
+                aux.next = aux.next.next;
+            }
+           
+        }
+    }
     
+    public int countOdds(){
+        int odds = 0;
+        Node aux = head;
+        
+        while(aux != null){
+            if(aux.data % 2 == 1){
+                odds++;
+            }
+            aux = aux.next;
+
+        }
+        
+        return odds;
+    }
+     public void InsertZeros(){
+        if(head==null) return;
+        
+        Node aux = head,p=head;
+                                   
+        while(aux.next != null){
+       
+            Node n = new Node(0);
+            aux=aux.next;
+            p.next=n;
+            n.next=aux;
+            p=aux;
+          
+        }
+    }
 }
+    
