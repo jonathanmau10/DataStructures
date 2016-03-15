@@ -1,5 +1,5 @@
 
-package unity2.doubleList;
+package unity1.doubleList;
 
 /**
  *
@@ -55,4 +55,41 @@ public class List {
             head = n;
         }
     }
+    
+    public void removeLast(){
+        
+        Node aux = head;
+        Node p = null;
+        if(head.next == null){
+            head = head.next;
+        }
+        else{
+            while(aux.next != null){
+                p = aux;
+                aux = aux.next;
+            }
+            p.next = aux.next;
+        }
+
+    }
+    
+    public void removeFirst(){
+        if(head == null) return;
+        head = head.next;
+        head.back = null;
+    }
+    
+    public void invert(){
+        Node aux = head;
+        Node p = null;
+        while (aux !=  null){
+          p = aux.back;
+          aux.back = aux.next;
+          aux.next = p;              
+          aux = aux.back;
+        }      
+
+        if(p != null )
+           head = p.back;
+    }     
 }
