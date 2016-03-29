@@ -23,7 +23,7 @@ public class List {
             head = n;
         }else{
             Node aux = head;
-            while(aux.next != head){
+            while(aux != head){
                 aux = aux.next;
             }
             n.next = head;
