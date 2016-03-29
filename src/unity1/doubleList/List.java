@@ -14,9 +14,12 @@ public class List {
     
     public void add(int d){
         Node n = new Node(d);
+        
         if (head == null) {
             head = n;
-        }else{
+        }
+        
+        else{
             Node aux = head;
             while(aux.next != null){
                 aux = aux.next;
@@ -24,7 +27,51 @@ public class List {
             aux.next = n;
             n.back = aux;
         }
+        
     }
+    
+    public int count(){
+        
+        int count = 0;
+        Node aux = head;
+        
+        while(aux != null){
+            count++;
+            aux = aux.next;
+        }
+        
+        return count;
+        
+    }
+    
+    public void printFirstElement(){
+        
+        if(head == null){
+            System.out.println(-1);
+        }
+        else{
+            System.out.println(head.data);
+        }
+        
+    }
+    
+     public void PrintLastElement(){
+        
+        if(head==null){
+            System.out.println("-1");
+        }
+        
+        else{
+            
+           Node aux = head;
+           while(aux.next!=null){
+               aux=aux.next;
+           }
+            System.out.println(" " + aux.data);
+        }
+        
+    }
+    
     public void print(){
         Node aux = head;
         while(aux != null){
@@ -33,6 +80,7 @@ public class List {
         }
         System.out.println();
     }
+    
     public void reversePrint(){
         if(head == null) return;
         Node aux = head;
@@ -45,6 +93,7 @@ public class List {
         }
         System.out.println();
     }
+    
     public void push(int d){
         Node n = new Node(d);
         if (head == null) {
@@ -56,21 +105,43 @@ public class List {
         }
     }
     
+    
+    public void remove(int index){
+        
+        Node current;
+        current = head.next;
+        
+        if(index == 0){
+            head = head.next;
+        }    
+        
+        for(int i=0;i<index;i++) {
+            current = current.next;
+        }
+        
+        current.back.next = current.next;
+        current.next.back = current.back;
+	
+    }
+    
     public void removeLast(){
         
-        Node aux = head;
-        Node p = null;
-        if(head.next == null){
-            head = head.next;
-        }
-        else{
-            while(aux.next != null){
-                p = aux;
-                aux = aux.next;
+        if(head==null)return;
+        
+        Node aux= head;
+        Node p = head;
+        
+        while(aux.next!=null){
+            aux=aux.next;
+            
+            while(p.next!=aux){
+                p=p.next;
             }
-            p.next = aux.next;
         }
-
+        
+        p.next=null;
+        aux.back=p;
+        
     }
     
     public void removeFirst(){
@@ -80,6 +151,7 @@ public class List {
     }
     
     public void invert(){
+        
         Node aux = head;
         Node p = null;
         while (aux !=  null){
@@ -89,7 +161,67 @@ public class List {
           aux = aux.back;
         }      
 
-        if(p != null )
-           head = p.back;
-    }     
+        if(p != null ){
+            head = p.back;
+        }
+        
+    }
+    
+    public void duplicate(){
+        if (head==null) return;
+    
+        Node aux=head;
+        Node last=head;
+        int c = count();
+        int i = 0;
+
+        while(last.next!=null){
+            
+            last=last.next;
+            
+        }
+
+        while(i < c){
+
+            Node n= new Node(aux.data);
+
+            n.back=last;
+            last.next=n;
+            n.next=null;
+
+            aux=aux.next;
+            last=last.next;
+            i++;
+
+        }
+    }
+    
+    public void duplicateMirror(){
+        
+        if (head==null) return;
+
+        Node aux=head,last=head;
+        int c = count();
+
+        while(last.next!=null){
+
+            last=last.next;
+            aux=last;
+
+        }
+
+        while(aux!=null){
+
+            Node n= new Node(aux.data);
+
+            n.back=last;
+            last.next=n;
+            n.next=null;
+
+            last=last.next;
+            aux= aux.back;
+
+        }
+
+    }
 }

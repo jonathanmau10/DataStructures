@@ -6,6 +6,7 @@ package unity1.doubleList;
  * @author jonathan
  */
 public class Test {
+    
     public static void main (String [] args){        
         testingList();
     }
@@ -17,6 +18,9 @@ public class Test {
         l.add(2);
         l.add(3);
         l.add(9);
+        l.remove(1);
+        l.print();
+        //l.duplicate();
         //l.invert();
         //l.removeFirst();
     }

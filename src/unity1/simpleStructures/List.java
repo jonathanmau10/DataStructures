@@ -285,7 +285,9 @@ public class List {
         
         return odds;
     }
-     public void InsertZeros(){
+    
+    public void InsertZeros(){
+        
         if(head==null) return;
         
         Node aux = head,p=head;
@@ -300,5 +302,6 @@ public class List {
           
         }
     }
+    
 }
     
