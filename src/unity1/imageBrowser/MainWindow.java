@@ -26,7 +26,6 @@ public class MainWindow extends JFrame{
         images = new ImageStore();
         setTitle("Set of images");
         setSize(200,100);
-        
         launchWidgets();
         launchEvents();
         setVisible(true);
