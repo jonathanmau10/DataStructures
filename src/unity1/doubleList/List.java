@@ -169,19 +169,14 @@ public class List {
     
     public void duplicate(){
         if (head==null) return;
-    
         Node aux=head;
         Node last=head;
         int c = count();
         int i = 0;
-
-        while(last.next!=null){
-            
-            last=last.next;
-            
+        while(last.next!=null) {
+            last=last.next;   
         }
-
-        while(i < c){
+        while(i < c) {
 
             Node n= new Node(aux.data);
 
@@ -192,36 +187,38 @@ public class List {
             aux=aux.next;
             last=last.next;
             i++;
-
         }
     }
     
     public void duplicateMirror(){
-        
         if (head==null) return;
-
         Node aux=head,last=head;
         int c = count();
-
-        while(last.next!=null){
-
+        while(last.next!=null) {
             last=last.next;
             aux=last;
-
         }
-
-        while(aux!=null){
-
+        while(aux!=null) {
             Node n= new Node(aux.data);
-
             n.back=last;
             last.next=n;
             n.next=null;
-
             last=last.next;
             aux= aux.back;
-
         }
-
+    }
+    
+    public void duplicateIntercaled(){
+        if(head == null)return;
+        Node aux = head;
+        Node p = head;
+        while(aux != null){
+            Node n = new Node(p.data);
+            aux = aux.next;
+            p.next = n;
+            n.back=p;
+            n.next = aux;
+            p = aux;
+        }
     }
 }
