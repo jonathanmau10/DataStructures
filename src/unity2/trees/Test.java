@@ -29,12 +29,17 @@ public class Test {
         int c = t.count();
         System.out.println("Total nodes: "+c);
         
-        /*System.out.println("Print Leafs: ");
-        t.printLeafs();*/
+        
         t.printLeafs();
             
         System.out.println("Max: "+t.max());
         
         System.out.println("Min: "+t.min());  
+        
+        System.out.print("recursivePrint: ");
+        t.recursivePrint();
+        
+        int r = t.recursiveCount();
+        System.out.println("RecursiveCount: "+r);
     }
 }
