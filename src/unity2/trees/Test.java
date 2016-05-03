@@ -30,7 +30,7 @@ public class Test {
         System.out.println("Total nodes: "+c);
         
         
-        t.printLeafs();
+        
             
         System.out.println("Max: "+t.max());
         
@@ -41,5 +41,11 @@ public class Test {
         
         int r = t.recursiveCount();
         System.out.println("RecursiveCount: "+r);
+        
+        System.out.println("The height of tree is: " + t.height());
+        
+        System.out.println("The leafs are: ");
+        t.printLeafsR();
+        t.rDraw();
     }
 }

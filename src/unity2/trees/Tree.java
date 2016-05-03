@@ -1,8 +1,11 @@
 
 package unity2.trees;
 
+import java.awt.Graphics;
 import java.util.Stack;
 import java.util.Vector;
+import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -219,31 +222,81 @@ public class Tree {
         System.out.println(" " + r.data);
     } 
     
-    public void PrintLeafsR(){
-        PrintLeafsR(root);
+    public void printLeafsR(){
+        printLeafsR(root);
         System.out.println();
     }
     
-    private void PrintLeafsR(Node r){
+    private void printLeafsR(Node r){
         if(r==null) return;
-        
-        PrintLeafsR(r.left);
-        if(r.left==null){
-         System.out.println(" " + r.data);   
-        }
-         PrintLeafsR(r.right);
-         if(r.right==null){
+        if(r.left == null && r.right == null){
             System.out.println(" " + r.data);
+            return;
+        }
+        printLeafsR(r.left);
+        printLeafsR(r.right);
+         
+    }
+    
+    public int height (){
+        return height(root);
+    }
+    
+    
+    public int height(Node node){
+        if (node == null) {
+            return 0;
+        } else {
+            return 1 + Math.max(height(node.left),height(node.right));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
         }
     }
     
-    public int Height (){
-        return Height(root);
+    public void rDraw() {
+        JFrame f = new JFrame() {
+            public void paint(Graphics g) {
+                g.clearRect(0, 0, getWidth(), getHeight());
+                rDraw(root, 20, 40, g);
+            }
+        };
+        f.setSize(600,400);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
-    private int Height (Node r){
-
-        if(r==null) return 0;
-
-        return 1;
+    
+    
+    
+    
+    
+    class Info {
+        int xroot, xfinal;
+    }
+    
+    private Info rDraw(Node r, int x, int y,Graphics g){
+        Info rootInfo = new Info();
+        rootInfo.xfinal = x;
+        if(r == null) {
+            return rootInfo;
+        }
+        Info leftInfo, rightInfo;
+        
+        leftInfo = rDraw(r.left, x, y+40,g);
+        x = leftInfo.xfinal;
+        
+        g.drawOval(x, y, 30, 30);
+        g.drawString("" + r.data, x+10, y+20);
+        rootInfo.xroot = x;
+        
+        rightInfo = rDraw(r.right, x+30, y+40, g);
+        rootInfo.xfinal = rightInfo.xfinal;
+        
+        if(r.left != null) {
+            g.drawLine(rootInfo.xroot+5, y+25, leftInfo.xroot+15, y+50);
+        }
+        
+        if(r.right != null) {
+            g.drawLine(rootInfo.xroot+25, y+25, rightInfo.xroot+15, y+50);
+        }
+        return rootInfo;
+        
     }
 }
