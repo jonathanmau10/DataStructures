@@ -173,4 +173,77 @@ public class Tree {
         if(r == null) return 0;
         return recursiveCount(r.left) + recursiveCount(r.right) + 1;        
     }
+    
+    public int recursiveSum() {
+        return recursiveSum(root);
+    } 
+    
+    private int recursiveSum(Node r){
+        if(r == null) return 0;
+        return recursiveSum(r.left) + recursiveSum(r.right) + r.data;
+    }
+    
+    public void PreOrderPrint(){        
+        PreOrderPrint(root);
+        System.out.println();
+    }
+    
+    private void PreOrderPrint(Node r){
+        if(r==null) return;
+        System.out.println(" " + r.data);
+        PreOrderPrint(r.left);
+        PreOrderPrint(r.right);
+    } 
+    
+     public void inOrderPrint(){        
+        inOrderPrint(root);
+        System.out.println();
+    }
+    
+    private void inOrderPrint(Node r){
+        if(r==null) return;
+        inOrderPrint(r.left);
+        System.out.println(" " + r.data);
+        inOrderPrint(r.right);
+    } 
+    
+     public void PostOrderPrint(){
+        PostOrderPrint(root);
+        System.out.println();
+    }
+    
+    private void PostOrderPrint(Node r){
+        if(r==null) return;
+        PostOrderPrint(r.left);
+        PostOrderPrint(r.right);
+        System.out.println(" " + r.data);
+    } 
+    
+    public void PrintLeafsR(){
+        PrintLeafsR(root);
+        System.out.println();
+    }
+    
+    private void PrintLeafsR(Node r){
+        if(r==null) return;
+        
+        PrintLeafsR(r.left);
+        if(r.left==null){
+         System.out.println(" " + r.data);   
+        }
+         PrintLeafsR(r.right);
+         if(r.right==null){
+            System.out.println(" " + r.data);
+        }
+    }
+    
+    public int Height (){
+        return Height(root);
+    }
+    private int Height (Node r){
+
+        if(r==null) return 0;
+
+        return 1;
+    }
 }
