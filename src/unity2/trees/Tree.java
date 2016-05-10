@@ -263,9 +263,63 @@ public class Tree {
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
+    public void prune(){
+        prune(root);
+    }
     
+    private void prune(Node r){
+        
+    }
     
+    public void complete(){
+        complete(root);
+    }
     
+    private void complete(Node r){
+        
+    }
+
+    public boolean isComplete(){
+        return isComplete(root);
+    }    
+    
+    private boolean isComplete(Node r){
+        if(r == null) return true;
+        if(r.left == null && r.right != null || r.left != null && r.right == null){
+            return false;
+        } 
+        
+        return isComplete(r.left) && isComplete(r.right);
+    }
+    
+    public Boolean exist(int d) {
+        Node aux = root;
+        if(d == root.data) return true;
+        while(aux != null) {
+            if(aux.data == d){
+                return true; 
+            } else if(d > aux.data){
+                    aux = aux.right;
+            } else if(d < aux.data) {
+                    aux = aux.left;
+            } 
+        }
+        return false;
+    }
+    
+    public void invert(){
+        invert(root);
+    }
+    
+    private void invert(Node r){
+        if(r == null) return;
+        invert(r.left);
+        invert(r.right);
+        Node auxRight = r.right;
+        Node auxLeft = r.left;
+        r.left = auxRight;
+        r.right = auxLeft;
+    }
     
     class Info {
         int xroot, xfinal;
