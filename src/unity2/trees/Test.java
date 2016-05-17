@@ -13,7 +13,7 @@ public class Test {
     
     public static void main(String args[]){
         Tree t = new Tree();
-        int values[]={10,6,2,8,4,16,14,20,12,22};
+        int values[]={10,6,2,8,4,16,14,20,12,22,1,3,5};
         for (int i = 0; i < values.length ; i++) {
             t.add(values[i]);
         }
@@ -47,7 +47,10 @@ public class Test {
         System.out.println("The leafs are: ");
         t.printLeafsR();
         System.out.println("The tree is : " + t.isComplete());
-        t.invert();
+        
+        //System.out.println(t.countOdds());
+        //t.printSoonAlone();
+        t.printMissing();
         t.rDraw();
         
     }

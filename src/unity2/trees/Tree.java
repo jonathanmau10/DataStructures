@@ -338,6 +338,65 @@ public class Tree {
         r.right = auxLeft;
     }
     
+    public int countOdds(){
+        return countOdds(root);
+    }
+    
+    private int countOdds(Node r){
+        if(r == null) return 0;
+        int n = countOdds(r.left) + countOdds(r.right);
+        if(r.data % 2 == 1) {
+            return n + 1;
+        } else {
+            return n;
+        }        
+    }
+    
+    public void printSoonAlone(){
+        printSoonAlone(root);
+    }
+    
+    private void printSonsAlone(Node r){
+        if(r == null) return;
+        if(r.left == null && r.right != null) {
+            System.out.println(" " + r.right.data);
+        } else if(r.left != null && r.right == null) {
+            System.out.println(" " + r.left.data);
+        }
+        printSonsAlone(r.left);
+        printSonsAlone(r.right);
+        
+    }
+    
+    public void printMissing(){
+        printMissing(root);
+    }
+    
+    private void printMissing(Node r){
+        if(r.left != null && r.right == null) {
+            for(int i = r.left.data + 1 ; i < r.data; i++) {
+                System.out.println(" " + i);
+            }
+        } else if(r.left == null && r.right != null){
+            for(int i = r.data + 1; i < r.right.data; i++) {
+                System.out.print(" " + i);
+            }
+        }
+        printMissing(r.left);
+        printMissing(r.right);
+    }
+    
+    public void reversePrint(){
+        reversePrint(root);
+    }
+    
+    public void reversePrint(Node r){
+      if(r==null) return;
+      reversePrint(r.right);
+      System.out.println(" "+r.data);
+      reversePrint(r.left);
+    }
+    
     class Info {
         int xroot, xfinal;
     }
