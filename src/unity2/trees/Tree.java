@@ -268,7 +268,13 @@ public class Tree {
     }
     
     private void prune(Node r){
-        
+        if(r == null) return;
+        if(r.left == null && r.right != null || r.left != null && r.right == null) {
+            r.left = null;
+            r.right = null;
+        } 
+        prune(r.left);
+        prune(r.right);
     }
     
     public void complete(){
@@ -276,7 +282,18 @@ public class Tree {
     }
     
     private void complete(Node r){
-        
+        int d = 0;
+        Node n;
+        if(r == null) return;
+        if(r.left == null && r.right != null) {
+            n = new Node(r.data-1);
+            r.left = n;
+        } else if(r.left != null && r.right == null) {
+            n = new Node(r.data+1);
+            r.right = n;   
+        } 
+        complete(r.left);
+        complete(r.right);
     }
 
     public boolean isComplete(){
