@@ -238,16 +238,16 @@ public class Tree {
          
     }
     
-    public int height (){
-        return height(root);
+    public int rHeight (){
+        return rHeight(root);
     }
     
     
-    public int height(Node node){
+    public int rHeight(Node node){
         if (node == null) {
             return 0;
         } else {
-            return 1 + Math.max(height(node.left),height(node.right));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            return 1 + Math.max(rHeight(node.left),rHeight(node.right));                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
         }
     }
     
@@ -352,8 +352,8 @@ public class Tree {
         }        
     }
     
-    public void printSoonAlone(){
-        printSoonAlone(root);
+    public void printSonsAlone(){
+        printSonsAlone(root);
     }
     
     private void printSonsAlone(Node r){
@@ -395,6 +395,59 @@ public class Tree {
       reversePrint(r.right);
       System.out.println(" "+r.data);
       reversePrint(r.left);
+    }
+   
+    public void remove(int d){
+        Node aux = root,p = null;
+        while(aux != null) {
+            p = aux;
+            if(d > aux.data) {
+                aux = aux.right;
+            } 
+            else if(d < aux.data) {
+                aux = aux.left;
+            } 
+            else {
+                if(aux == root) {
+                    if(aux.left == null) {
+                        root = aux.right;
+                    }
+                    else {
+                        root = aux.left;
+                        p = root;
+                    }
+                    while(p.right != null) {
+                        p = p.right;
+                    }
+                    p.right = aux.right;
+                }
+                else {
+                    if(d < p.data) {
+                        if(aux.left == null) {
+                            p.left = aux.right;
+                        }
+                        else {
+                            p.left = aux.left;
+                            p = p.left;
+                            while(p.right != null) {
+                                p = p.right;
+                            }
+                            p.right = aux.right;
+                        }
+                    }
+                    
+                }
+            }
+            return;
+        }
+    }
+    
+    public int equilibriumFactor(){
+        return equilibriumFactor(root);
+    }
+    
+    private int equilibriumFactor(Node r){
+        return rHeight(r.left) - rHeight(r.right);
     }
     
     class Info {
