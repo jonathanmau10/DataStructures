@@ -442,14 +442,6 @@ public class Tree {
         }
     }
     
-    public int equilibriumFactor(){
-        return equilibriumFactor(root);
-    }
-    
-    private int equilibriumFactor(Node r){
-        return rHeight(r.left) - rHeight(r.right);
-    }
-    
     class Info {
         int xroot, xfinal;
     }

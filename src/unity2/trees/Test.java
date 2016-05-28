@@ -42,7 +42,7 @@ public class Test {
         int r = t.recursiveCount();
         System.out.println("RecursiveCount: "+r);
         
-        System.out.println("The height of tree is: " + t.height());
+        System.out.println("The height of tree is: " + t.rHeight());
         
         System.out.println("The leafs are: ");
         t.printLeafsR();
